@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
@@ -12,6 +13,7 @@ import { UsuariosModule } from './usuarios/usuario/usuarios.module';
     imports: [
         BrowserModule,
         AppRoutingModule,
+        HttpClientModule,
         SharedModule,
         UsuariosModule
     ],
