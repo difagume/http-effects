@@ -20,7 +20,8 @@ export function usuariosReducer(state = estadoInicial, action: usuariosAcciones)
         case CARGAR_USUARIOS:
             return {
                 ...state,
-                loading: true
+                loading: true,
+                error: null
             };
 
         case CARGAR_USUARIOS_SUCCESS:
@@ -28,6 +29,7 @@ export function usuariosReducer(state = estadoInicial, action: usuariosAcciones)
                 ...state,
                 loading: false,
                 loaded: true,
+                error: null,
                 users: [...action.usuarios]
             };
 

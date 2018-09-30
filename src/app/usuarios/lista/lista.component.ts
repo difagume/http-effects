@@ -11,12 +11,24 @@ import { CargarUsuarios } from '../../store/actions';
 })
 export class ListaComponent implements OnInit {
 
+  loading: boolean;
+  error: any;
   usuarios: Usuario[] = [];
 
   constructor(private store: Store<AppState>) { }
 
   ngOnInit() {
     this.store.dispatch(new CargarUsuarios());
+
+    // cargo los usuarios en el html desde el store
+    this.store.select('usuarios')
+      .subscribe(store => {
+        this.usuarios = store.users;
+        this.loading = store.loading;
+        this.error = store.error;
+      });
+
+    // cargo los usuarios desde el servicio
     /* this.usuarioService.getUsers()
       .subscribe(users => this.usuarios = users); */
   }
